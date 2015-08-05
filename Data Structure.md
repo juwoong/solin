@@ -64,7 +64,7 @@ ImageId = { type: String, max: 64 }
 ```js
 {
 	type : String,
-	ImageId,
+	image: ImageId,
 	name : String 
 }
 ```
