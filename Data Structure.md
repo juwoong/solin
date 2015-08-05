@@ -6,69 +6,56 @@
 
 ~~~
 {
-	_id : ObjectId(...),
-	email : { type : string, max : 30 },
-	password : { type : string, length : 64 },
-	username : { type : string, max : 10 },
-	statusMessage : { type : string, max : 80 },
-	profile : { type : string, length : 64 },
-	currentGoal : [{
-		_id : ObjectId(...),
-		name : { type : string, max : 100 }
+	email : { type : String, max : 30 },
+	password : { type : String, length : 64 },
+	username : { type : String, max : 100 },
+	profile : { type : String, length : 64 },
+	statusMessage : { type : String, max : 80 },
+	currentGoal : [Goal],
+	badges : [{
+		type : { type : Integer }, 
+		image : { type : String, length: 64 }
 	}, ...],
-	badges : [ {
-		_id : ObjectId(...),
-		type : { type : integer }, 
-		image : { type : string, length: 64 }
-	}, ...],
-	friendNumber : { type : integer },
-	friends : [ {
-		_id : ObjectId(...), 
-		profile : { type : string, length : 64 },
-		username : { type : string, max : 10 },
-	}, ...],
+	friends : [ObjectId], 
 	activities : [ {
-		image : { type : string, length : 64 },
-		info : { type : string },
-		date : { type : date}
+		image : { type : String, length : 64 },
+		info : { type : String },
+		date : { type : Date }
 	}, ...],
 	inventory : [{
-		type : integer,
-		image : { type : string, length : 64 }, 
-		name : string 
+		type : Integer,
+		image : { type : String, length : 64 }, 
+		name : String 
 	}, ...], 
-	personality : {
+	personality : 
 		O : 3,
 		C : 2,
 		E : 0,
 		A : -1,
 		N : 1
-	}
 }
 ~~~
 
 ##Goal Data Struct
 ~~~
 {
-	_id : ObjectId(...),
-	name : { type : string, max : 100 },
+	name : { type : String, max : 100 },
 	date : {
-		startdate : date,
-		enddate : date
+		startDate : Date,
+		endDate : Date
 	},
 	category : {
-		name : string,
-		classificateCode : integer
+		name : String,
+		code : String
 	},
-	three-legged : boolean,
+	threeLegged : Boolean,
 	users : [{
-		_id : ObjectId(...),
 		username : { type : string, max : 10 },
 		profile : { type : string, length : 64 },
 		term : integer,
 		result : [{
-			date : date,
-			persent : integer,
+			date : Date,
+			percent : Integer,
 		}, ...]
 	}, ...],
 }
