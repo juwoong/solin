@@ -4,7 +4,7 @@
 
 ##User Data Structure
 
-~~~json
+~~~
 {
 	_id : ObjectId(...),
 	email : { type : string, max : 30 },
@@ -48,7 +48,7 @@
 ~~~
 
 ##Goal Data Struct
-~~~json
+~~~
 {
 	_id : ObjectId(...),
 	name : { type : string, max : 100 },
