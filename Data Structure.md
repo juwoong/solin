@@ -1,49 +1,39 @@
 #Solin Data Structure
+Using MongoDB.
 
-###Using MongoDB.
+##### Types
+```js
+ImageId = { type: String, max: 64 }
+```
 
 ##User Data Structure
-
-~~~
+```js
 {
 	email : { type : String, max : 30 },
 	password : { type : String, length : 64 },
-	username : { type : String, max : 100 },
-	profile : { type : String, length : 64 },
+	name : { type : String, max : 100 },
+	profileImage : ImageId,
 	statusMessage : { type : String, max : 80 },
-	currentGoal : [Goal],
-	badges : [{
-		type : { type : Integer }, 
-		image : { type : String, length: 64 }
-	}, ...],
+	currentGoals : [Goal],
 	friends : [ObjectId], 
-	activities : [ {
-		image : { type : String, length : 64 },
-		info : { type : String },
-		date : { type : Date }
-	}, ...],
-	inventory : [{
-		type : Integer,
-		image : { type : String, length : 64 }, 
-		name : String 
-	}, ...], 
-	personality : 
-		O : 3,
-		C : 2,
-		E : 0,
-		A : -1,
-		N : 1
+	activities : [Activity],
+	inventory : [Item], 
+	personality : {
+		O: Integer,
+		C: Integer,
+		E: Integer,
+		A: Integer,
+		N: Integer
+	} // TODO: need some discussion with Logan Lee
 }
-~~~
+```
 
 ##Goal Data Struct
-~~~
+```js
 {
 	name : { type : String, max : 100 },
-	date : {
-		startDate : Date,
-		endDate : Date
-	},
+	startDate : Date,
+	endDate : Date,
 	category : {
 		name : String,
 		code : String
@@ -59,4 +49,22 @@
 		}, ...]
 	}, ...],
 }
-~~~
+```
+
+## Activity
+```js
+{
+	image : ImageId,
+	info : String,
+	createdAt : Date
+}
+```
+
+## Item
+```js
+{
+	type : String,
+	ImageId,
+	name : String 
+}
+```
