@@ -14,7 +14,7 @@ ImageId = { type: String, max: 64 }
 	name : { type : String, max : 100 },
 	profileImage : ImageId,
 	statusMessage : { type : String, max : 80 },
-	currentGoals : [Goal],
+	currentGoals : [ObjectId], 
 	friends : [ObjectId], 
 	activities : [Activity],
 	inventory : [Item], 
@@ -40,9 +40,10 @@ ImageId = { type: String, max: 64 }
 	},
 	threeLegged : Boolean,
 	users : [{
+		userId : ObjectId,
 		username : { type : string, max : 10 },
 		profile : { type : string, length : 64 },
-		term : integer,
+		startAt : Date,
 		result : [{
 			date : Date,
 			percent : Integer,
