@@ -9,8 +9,9 @@ ImageId = { type: String, max: 64 }
 ##User Data Structure
 ```js
 {
-	email : { type : String, max : 30 },
-	password : { type : String, length : 64 },
+	accountType : String,
+	userId : String,
+	userAccessToken : String,
 	name : { type : String, max : 100 },
 	profileImage : ImageId,
 	statusMessage : { type : String, max : 80 },
